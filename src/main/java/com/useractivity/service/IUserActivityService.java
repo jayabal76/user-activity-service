@@ -1,0 +1,15 @@
+package com.useractivity.service;
+
+import com.useractivity.UserActionInfo;
+import com.useractivity.model.UserSession;
+
+import java.util.List;
+
+public interface IUserActivityService {
+//    UserActivity getUserActivityLog(String userId);
+//    UserActivity createUserActivityLog(UserActivity userActivity);
+    UserSession updateOrCreateUserActivityLog(String userId, String sessionId, UserActionInfo UserActionInfo);
+    UserSession findUserActivityLog(String userId, String sessionId);
+    List<UserSession> findByUserId(String userId);
+
+}
