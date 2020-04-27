@@ -18,13 +18,14 @@ public class UserActivityController {
 
 
     @GetMapping(value = "/users/{id}", produces = "application/json")
-    public List<UserSession> getUserActivityLog(@PathVariable("id") String id) {
+    public List<UserSession> findUserActivityByUserId(@PathVariable("id") String id) {
         return iUserActivityService.findByUserId(id);
     }
 
+
     @GetMapping(value = "/users/{userid}/session/{sessionid}", produces = "application/json")
-    public UserSession findUserActivityLog(@PathVariable("userid") String userid,  @PathVariable("sessionid") String sessionid) {
-        return iUserActivityService.findUserActivityLog(userid, sessionid);
+    public UserSession findUserActivityByUserSessionId(@PathVariable("userid") String userid,  @PathVariable("sessionid") String sessionid) {
+        return iUserActivityService.findByUserSessionId(userid, sessionid);
     }
 
     @PutMapping(value = "/users/{userid}/session/{sessionid}", produces = "application/json")
@@ -32,5 +33,6 @@ public class UserActivityController {
                                                     @RequestBody UserActionInfo userActionInfo) {
         return iUserActivityService.updateOrCreateUserActivityLog(userid, sessionid, userActionInfo);
     }
+
 
 }

@@ -6,6 +6,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.Map;
 
 @Entity
@@ -26,20 +27,6 @@ public class UserAction implements Serializable {
 
     @ElementCollection
     private Map<String, String> properties;
-
-//    @JsonIgnore
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "userid")
-//    private UserActivity userActivity;
-
-//    @JsonIgnore
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumns({
-//            @JoinColumn(name = "user_session_id_u", referencedColumnName = "userid", insertable = false, updatable = false),
-//            @JoinColumn(name = "user_session_id_k", referencedColumnName = "sessionid", insertable = false, updatable = false),
-//    })
-//    private UserSession userSession;
-
 
     @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
@@ -64,13 +51,6 @@ public class UserAction implements Serializable {
     public void setType(String type) {
         this.type = type;
     }
-//    public UserActivity getUserActivity() {
-//        return userActivity;
-//    }
-//
-//    public void setUserActivity(UserActivity userActivity) {
-//        this.userActivity = userActivity;
-//    }
 
     public UserSession getUserSession() {
         return userSession;
@@ -81,6 +61,8 @@ public class UserAction implements Serializable {
     }
 
     public Map<String, String> getProperties() {
+        if(properties == null)
+            properties = new HashMap<>();
         return properties;
     }
 

@@ -20,6 +20,14 @@ Tool - Postman for testing the service
 3. The default service port is 8098 if it's not specified.
 
 # Start dababase h2 console
+
+Modelled three tables
+```
+USER_SESSION
+USER_ACTION
+USER_ACTION_PROPERTIES
+```
+
 ## Get a database table info
 ```
 curl --location --request GET '{host}:{port}/h2-console/'
@@ -33,5 +41,5 @@ password:<empty>
 # Get APIs Info
 See the swagger document
 ```
-http://localhost:<port>//swagger-ui.html#
+http://localhost:<port>/swagger-ui.html#
 ```

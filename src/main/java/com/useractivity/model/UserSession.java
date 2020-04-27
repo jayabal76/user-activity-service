@@ -9,13 +9,6 @@ import java.util.List;
 @Table(name = "user_session")
 @IdClass(UserSessionId.class)
 public class UserSession {
-//    @Id
-//    @Column(name="userid")
-//    @NotBlank(message = "userId must not be empty")
-//    private String userId;
-//    @EmbeddedId
-//    private UserSessionId userSessionId;
-
     @Id
     @Column(name="userid")
     @NotBlank(message = "userId must not be empty")

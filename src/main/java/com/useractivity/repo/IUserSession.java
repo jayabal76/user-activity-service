@@ -10,6 +10,5 @@ import java.util.Optional;
 
 @Repository
 public interface IUserSession extends JpaRepository<UserSession, UserSessionId> {
-    //List<UserSession> findByUserSessionIdUserId(String userId);
     Optional<List<UserSession>> findByUserId(String userId);
 }
